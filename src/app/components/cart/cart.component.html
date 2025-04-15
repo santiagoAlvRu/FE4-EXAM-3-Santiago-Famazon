@@ -1,0 +1,38 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="border p-3 mb-3">
+          <h5 class="text-success">Cart - {{ cart.length }} item(s)</h5>
+          <hr>
+          @for (product of cart; track product.id) {
+          <div class="row mb-3 align-items-center">
+            <div class="col-md-3">
+              <img src="/imgs/{{ product.image }}" alt="" class="img-fluid rounded">
+            </div>
+            <div class="col-md-9">
+              <p><strong>{{ product.name }}</strong></p>
+              <p>{{ product.description }}</p>
+              <p><strong>Price: €{{ product.price }}</strong></p>
+            </div>
+          </div>
+          <hr>
+          } @empty {
+          <p class="text-danger"><b>Your cart is empty!</b></p>
+          }
+        </div>
+      </div>
+      
+     @if(cart.length> 0) {
+    <div class="col-md-4">
+        <div class="border p-3 mb-3">
+          <h6 class="text-success pb-2">Summary</h6>
+          <p>Products <span class="float-end">€{{ productstotal }}</span></p>
+          <p><p><i class="bi bi-truck"></i>VIP Shipping: <span class="float-end">€{{ shippingcost }}</span></p>
+          <p><span class="fst-italic">15% Discount</span><span class="float-end"> -€{{ justdiscount }}</span></p>
+          <hr>
+          <p><strong>Total amount (including VAT)</strong> <span class="float-end"><strong>€{{ discountedprice }}</strong></span></p>
+        </div>
+      </div>
+    }
+    </div>
+    </div>

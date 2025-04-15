@@ -1,0 +1,26 @@
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="w-100">
+    <div class="row justify-content-center row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4 my-4">
+      @for (product of products; track product.id) {
+        <div class="col d-flex justify-content-center">
+          <div class="card" style="width: 18rem;">
+            <img src="imgs/{{ product.image }}" height="300px" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">€{{ product.price }}</p>
+              <hr>
+              <div class="d-flex justify-content-between">
+                @if (product.availability) {
+                <a routerLink="details/{{ product.id }}" class="btn btn-primary">Show details</a>
+                <button class="btn btn-warning" (click)="addToCart(product)">Add to Cart</button>
+                } @else {
+                  <p class="text-danger p-4 fw-bold">The product is not available</p>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

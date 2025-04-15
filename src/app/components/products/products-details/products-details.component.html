@@ -1,0 +1,11 @@
+<div class="container d-flex justify-content-center align-items-center my-4">
+    <div class="card" style="width: 30rem;">
+        <img src="imgs/{{ product?.image }}" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ product?.name}}</h5>
+          <p class="card-text">€{{ product?.price }}</p>
+          <p class="card-text"><b>{{ product?.description }}</b></p>
+          <hr>
+          <button class="btn btn-warning" (click)="addToCart(product)">Add to Cart</button>
+          </div>
+        </div>
